@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Media Search</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="container" id="bandslike-app" v-cloak>	
+			<div class="row band-search">
+				<form v-on:submit="search">
+					<div class="col-12">
+						<h1>Search For Bands/Movies/TV Shows/Books Like...</h1>
+						<input class="form-control form-control-lg" v-model="term" type="search" placeholder="Enter search term here e.g. Slayer" required />
+						<select class="form-control form-control-lg" v-model="lookfor" aria-label="Search For Bands/Movies/TV Shows/Books" required>
+							<option value="" selected>Choose Media Type</option>
+							<option value="music" >Music</option>
+							<option value="movie">Movies</option>
+							<option value="show">TV Show</option>
+							<option value="book">Book</option>
+						</select>
+						<div class="d-grid gap-2">
+							<button class="btn btn-success btn-lg">Search</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<original-result :orig="orig"></original-result>
+			<band-list :results="results"></band-list>
+		</div>
+		<div class="footer row">
+			<div class="col-12">
+				<p class="built-with text-center"><small>Built with <a href="https://vuejs.org/" target="_blank">Vue</a>, <a href="https://github.com/axios/axios" target="_blank">Axios</a> and <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>. API from <a href="https://tastedive.com/" target="_blank">TasteDive</a></small></p>
+			</div>
+		</div>
+	</div>
+	<script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="assets/js/band-list.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+</html>
