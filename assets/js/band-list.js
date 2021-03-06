@@ -54,7 +54,7 @@ const vm = new Vue({
   },
   methods: {
 	search:function() {
-		axios.get("https://tastedive.com/api/similar?q=" + this.term + "&k=403769-SimilarA-VZVHPWN7&type=" + this.lookfor + "&verbose=1")
+		axios.get("https://thingproxy.freeboard.io/fetch/https://tastedive.com/api/similar?q=" + this.term + "&k=403769-SimilarA-VZVHPWN7&type=" + this.lookfor + "&verbose=1")
 		.then(response => {
 			this.results = response.data.Similar.Results;
 			this.orig = response.data.Similar.Info;
